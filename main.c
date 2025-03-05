@@ -1,6 +1,6 @@
-#include <stdio.h>
+#include <rust.h>
 
 int main(void) {
-    printf("Hello, World!\n");
+    rust_test();
     return 0;
 }
