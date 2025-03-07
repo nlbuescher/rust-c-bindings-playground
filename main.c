@@ -6,12 +6,10 @@ int main(void) {
 
     Shape* square = rust_shape_new_square(4);
 
-    const uint32_t area = rust_shape_area(square);
-    printf("area: %u\n", area);
+    Future_f32* future = rust_shape_calculate_area(square);
+
+    const float result = rust_await_f32(future);
+    printf("area: %f\n", result);
 
     rust_shape_free(square);
-
-    // second access causes segmentation fault, as it should
-    //const uint32_t area2 = rust_shape_area(square);
-    //printf("area: %u\n", area2);
 }
